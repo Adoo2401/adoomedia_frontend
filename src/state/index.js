@@ -31,13 +31,13 @@ export const authSlice=createSlice({
            },
 
            setPosts:(state,action)=>{
-            state.posts=action.payload.posts
+            state.posts=action.payload
            },
 
            setPost:(state,action)=>{
 
                   const updatePosts=state.posts.map((post)=>{
-                    if(post._id===action.payload.post_id) {return action.payload.post};
+                    if(post._id===action.payload._id) {return action.payload};
                     return post
                   })
                   state.posts=updatePosts

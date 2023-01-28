@@ -18,6 +18,7 @@ const UserWidget=({userId,picturePath})=>{
       const {palette}=useTheme();
       const navigate=useNavigate();
       const {token,mode}=useSelector((state)=>state);
+      let loggedInuser=useSelector((state)=>state.user);
       const dark=palette.neutral.dark;
       const medium=palette.neutral.medium;
       const main=palette.neutral.main;
@@ -53,7 +54,7 @@ const UserWidget=({userId,picturePath})=>{
                           <UserImage image={picturePath.url}/>
                           <Box>
                              <Typography variant="h4" color={dark} fontWeight="500" sx={{"&:hover":{color:palette.primary.light,cursor:"pointer"}}}>{user.firstName} {user.lastName}</Typography>
-                             <Typography color={medium}>{user.friends.length} friends</Typography>
+                             <Typography color={medium}>{loggedInuser.friends.length} friends</Typography>
                           </Box>
                        </FlexBetween>
                        <ManageAccountsOutlined/>
