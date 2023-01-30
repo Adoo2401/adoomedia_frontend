@@ -12,7 +12,7 @@ import { toast } from 'react-toastify'
 import { setPosts } from 'state'
 
 
-const MyPostWidget = ({picturePath}) => {
+const MyPostWidget = ({picturePath,loggedInUser}) => {
   
       const dispatch=useDispatch();
       const [isImage,setIsImage]=useState(true);
@@ -75,7 +75,7 @@ const MyPostWidget = ({picturePath}) => {
                 formData.append("picture",image)
             }
 
-            let response = await fetch(`${baseURL}/posts`,{headers:{'Authorization':`Bearer ${token}`},body:formData,method:"POST"}); 
+            let response = await fetch(`${baseURL}/posts?loggedInUser=${loggedInUser?true:false}`,{headers:{'Authorization':`Bearer ${token}`},body:formData,method:"POST"}); 
             response = await response.json();
             
             if(response.success){
