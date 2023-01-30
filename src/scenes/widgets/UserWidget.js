@@ -9,7 +9,8 @@ import {useNavigate} from 'react-router-dom'
 import baseURL from 'baseURL'
 import { toast } from 'react-toastify'
 import UserLoader from 'components/UserLoader'
-
+import twitter from 'assets/twitter.png'
+import linkedin from 'assets/linkedin.png'
 
 const UserWidget=({userId,picturePath})=>{
       
@@ -38,7 +39,7 @@ const UserWidget=({userId,picturePath})=>{
 
       useEffect(()=>{
           getUser();
-      },[])
+      },[userId])
 
 
       return(
@@ -91,7 +92,7 @@ const UserWidget=({userId,picturePath})=>{
                         <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">Social Profiles</Typography>
                         <FlexBetween gap="1rem" mb="0.5rem">
                             <FlexBetween gap="1rem">
-                                <img src="./assets/twitter.png" alt="twitter logo" />
+                                <img src={twitter} alt="twitter logo" />
                                 <Box>
                                   <Typography color={main}>Twitter</Typography>
                                   <Typography color={main}>Social Network</Typography>
@@ -102,7 +103,7 @@ const UserWidget=({userId,picturePath})=>{
 
                         <FlexBetween gap="1rem">
                             <FlexBetween gap="1rem">
-                                <img src="./assets/linkedin.png" alt="linkedin logo" />
+                                <img src={linkedin} alt="linkedin logo" />
                                 <Box>
                                   <Typography color={main}>Linkedn</Typography>
                                   <Typography color={main}>Network Platform</Typography>

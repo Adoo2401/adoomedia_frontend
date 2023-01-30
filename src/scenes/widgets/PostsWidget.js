@@ -38,9 +38,9 @@ const PostsWidget=({userId,isProfile=false})=>{
     }
 
     useEffect(()=>{
-        if(isProfile){ return getUserPosts(); }
-        getPosts();
-    },[])
+        if(isProfile){ getUserPosts(); }
+        else{ getPosts(); }
+    },[userId])
 
 
     return(
